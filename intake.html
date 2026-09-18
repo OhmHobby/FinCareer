@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<!--
+  CLIENT INTAKE FORM — for Sakdinon Settasing (Ohm)
+
+  Self-contained on purpose: no external CSS/JS, no fonts required, no backend.
+  It can be emailed as a single file and filled in offline.
+
+  Answers are saved in the browser (localStorage) so progress survives a
+  refresh. Nothing is transmitted anywhere — the "สร้างไฟล์คำตอบ" button
+  produces a text file Ohm sends back manually.
+
+  INTERNAL — do not link this from index.html.
+-->
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>แบบฟอร์มข้อมูลสำหรับเว็บไซต์ — ศักดินนท์ เศรษฐสิงห์</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand-50:#F7F4EE; --sand-100:#EFEAE1; --card:#FFF;
+  --sand-200:#E2DACB; --sand-300:#CFC4AE; --sand-400:#8A7F6A;
+  --ink-deep:#0A1721; --ink-abyss:#050D13;
+  --text-strong:#0A1721; --text-body:#2E3F4C; --text-muted:#556775;
+  --gold-500:#D9A14F; --gold-text:#7A4E12; --gold-soft:rgba(217,161,79,.12);
+  --aqua-text:#0E5C57; --aqua-soft:rgba(43,184,174,.12);
+  --neg-text:#9B2125; --neg-soft:rgba(155,33,37,.08);
+  --f-thai:"IBM Plex Sans Thai","IBM Plex Sans",system-ui,sans-serif;
+  --f-sans:"IBM Plex Sans",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+body{background:var(--sand-50);color:var(--text-body);font-family:var(--f-thai);font-size:16px;-webkit-font-smoothing:antialiased;padding-bottom:140px}
+:lang(th){font-family:var(--f-thai);line-height:1.8;letter-spacing:0}
+:lang(en){font-family:var(--f-sans);line-height:1.6}
+h1,h2,h3{color:var(--text-strong);font-weight:600}
+:lang(th) h1,:lang(th) h2,:lang(th) h3{line-height:1.4}
+
+.wrap{width:min(860px,100% - 2rem);margin-inline:auto}
+
+header.top{background:var(--ink-deep);color:#E9EFF4;padding:56px 0 48px;margin-bottom:40px}
+header.top h1{color:#E9EFF4;font-size:clamp(1.5rem,1.2rem+1.4vw,2.125rem);margin-bottom:12px}
+header.top p{color:#C3CED7;max-width:62ch}
+.eyebrow{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-500);margin-bottom:14px}
+
+.note{border-radius:12px;padding:18px 20px;margin:24px 0;font-size:.9rem;line-height:1.75}
+.note--safe{background:var(--aqua-soft);border:1px solid rgba(14,92,87,.25);color:var(--aqua-text)}
+.note--warn{background:var(--neg-soft);border:1px solid rgba(155,33,37,.28);color:var(--neg-text)}
+.note--info{background:var(--gold-soft);border:1px solid rgba(122,78,18,.25);color:var(--gold-text)}
+.note strong{font-weight:600}
+
+section.part{margin:48px 0}
+.part__head{border-top:2px solid var(--text-strong);padding-top:16px;margin-bottom:8px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.part__tag{font-family:var(--f-mono);font-size:.75rem;color:var(--gold-text);letter-spacing:.1em}
+.part__sub{color:var(--text-muted);font-size:.9rem;margin-bottom:28px}
+
+.q{background:var(--card);border:1px solid var(--sand-300);border-radius:14px;padding:24px;margin-bottom:16px}
+.q--block{border-color:var(--neg-text);border-width:1.5px}
+.q__id{font-family:var(--f-mono);font-size:.7rem;color:var(--gold-text);letter-spacing:.1em;margin-bottom:6px}
+.q__label{font-weight:600;color:var(--text-strong);margin-bottom:4px;font-size:1.02rem}
+.q__hint{font-size:.85rem;color:var(--text-muted);margin-bottom:16px;line-height:1.7}
+.q__hint code{font-family:var(--f-mono);font-size:.9em;background:var(--sand-100);padding:1px 5px;border-radius:4px}
+
+label.opt{display:flex;gap:11px;align-items:flex-start;padding:11px 13px;border:1px solid var(--sand-300);border-radius:9px;margin-bottom:8px;cursor:pointer;font-size:.93rem;transition:border-color .15s,background .15s}
+label.opt:hover{border-color:var(--sand-400)}
+label.opt:has(input:checked){border-color:var(--gold-text);background:var(--gold-soft)}
+label.opt input{margin-top:.35em;flex:none;accent-color:var(--gold-text);width:16px;height:16px}
+.opt__rec{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.08em;background:var(--gold-500);color:var(--ink-deep);padding:1px 6px;border-radius:99px;margin-left:6px;vertical-align:1px}
+
+input[type=text],input[type=email],input[type=url],textarea{
+  width:100%;font:inherit;font-size:.95rem;color:var(--text-strong);
+  background:var(--card);border:1px solid var(--sand-400);border-radius:6px;
+  padding:11px 13px;margin-top:8px
+}
+textarea{resize:vertical;min-height:110px;line-height:1.8}
+input:focus-visible,textarea:focus-visible,label.opt:focus-within{outline:2px solid var(--gold-text);outline-offset:2px}
+.sub{font-size:.82rem;color:var(--text-muted);margin-top:6px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+
+/* file checklist */
+.files li{list-style:none}
+.files label{display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--sand-200);font-size:.93rem}
+.files label:last-child{border-bottom:0}
+.files input{margin-top:.35em;accent-color:var(--aqua-text);width:16px;height:16px;flex:none}
+.files .have{color:var(--aqua-text);font-family:var(--f-mono);font-size:.72rem;margin-left:auto;flex:none;white-space:nowrap}
+.files small{display:block;color:var(--text-muted);font-size:.8rem;line-height:1.6;margin-top:2px}
+
+/* sticky bar */
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--ink-deep);color:#E9EFF4;padding:14px 0;z-index:50;box-shadow:0 -6px 24px rgba(10,23,33,.16)}
+.bar__in{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.progress{flex:1;min-width:160px}
+.progress__track{height:5px;background:rgba(233,239,244,.16);border-radius:99px;overflow:hidden}
+.progress__fill{height:100%;width:0;background:var(--gold-500);border-radius:99px;transition:width .3s cubic-bezier(.2,0,0,1)}
+.progress__txt{font-family:var(--f-mono);font-size:.72rem;color:#8093A1;margin-top:6px}
+.btn{font:inherit;font-size:.9rem;font-weight:500;border:1px solid transparent;border-radius:9px;padding:12px 22px;cursor:pointer;min-height:46px}
+.btn--go{background:var(--gold-500);color:var(--ink-deep)}
+.btn--go:hover{background:#B8843A}
+.btn--gh{background:transparent;border-color:rgba(233,239,244,.28);color:#E9EFF4}
+.btn--gh:hover{border-color:var(--gold-500)}
+
+dialog{border:0;border-radius:16px;padding:0;max-width:min(820px,94vw);width:100%;background:var(--card)}
+dialog::backdrop{background:rgba(5,13,19,.6)}
+.dlg__h{padding:22px 24px;border-bottom:1px solid var(--sand-200);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlg__b{padding:20px 24px}
+.dlg__b textarea{font-family:var(--f-mono);font-size:.78rem;line-height:1.65;min-height:46vh;border-color:var(--sand-300)}
+.dlg__f{padding:16px 24px 22px;display:flex;gap:10px;flex-wrap:wrap}
+.dlg__f .btn--go,.dlg__f .btn--gh{color:var(--text-strong)}
+.dlg__f .btn--gh{border-color:var(--sand-400)}
+.dlg__f .btn--go{color:var(--ink-deep)}
+.saved{font-family:var(--f-mono);font-size:.72rem;color:var(--aqua-text)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow" lang="en">CLIENT INTAKE · WEBSITE PROJECT</p>
+    <h1>แบบฟอร์มข้อมูลสำหรับทำเว็บไซต์</h1>
+    <p>สำหรับคุณโอม — ศักดินนท์ เศรษฐสิงห์ · กรอกเท่าที่ตอบได้ ข้อไหนยังไม่พร้อมข้ามไปก่อนได้
+       เมื่อเสร็จแล้วกดปุ่ม <strong>สร้างไฟล์คำตอบ</strong> ด้านล่าง แล้วส่งไฟล์กลับมา</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="note note--safe">
+    <strong>เรื่องความปลอดภัย —</strong> แบบฟอร์มนี้ <strong>ไม่ขอ</strong> รหัสผ่าน, <span lang="en">private key</span>,
+    <span lang="en">seed phrase</span>, <span lang="en">API key</span> หรือข้อมูลบัญชีใด ๆ ทั้งสิ้น
+    ถ้ามีใครขอสิ่งเหล่านี้จากคุณโดยอ้างชื่อโปรเจกต์นี้ ให้ถือว่าเป็นการหลอกลวง
+    <br>คำตอบทั้งหมดถูกเก็บไว้ในเบราว์เซอร์ของคุณเครื่องเดียว ไม่มีการส่งออกไปที่ใดจนกว่าคุณจะกดสร้างไฟล์และส่งเอง
+  </div>
+
+  <div class="note note--info">
+    <strong>ใช้เวลาประมาณ 20–30 นาที</strong> · คำตอบจะถูกบันทึกอัตโนมัติ ปิดหน้าแล้วกลับมากรอกต่อได้
+    · ส่วน <span lang="en">A</span> คือส่วนที่ทำให้เว็บเปิดใช้งานจริงไม่ได้ถ้ายังไม่มีคำตอบ
+  </div>
+
+  <form id="f">
+
+  <!-- ══════════ PART A ══════════ -->
+  <section class="part">
+    <div class="part__head">
+      <span class="part__tag" lang="en">PART A</span>
+      <h2>ต้องมีก่อนเปิดเว็บจริง</h2>
+    </div>
+    <p class="part__sub">สามข้อนี้เป็นตัวบล็อกการเปิดเว็บ ถ้ายังไม่มีคำตอบ เราเปิดเว็บให้ไม่ได้</p>
+
+    <div class="q q--block">
+      <p class="q__id" lang="en">A1 · LAUNCH BLOCKER</p>
+      <p class="q__label">สถานะใบอนุญาตกับ ก.ล.ต. (<span lang="en">Thai SEC</span>)</p>
+      <p class="q__hint">ข้อนี้กำหนดว่าเว็บจะเขียนบรรยายบริการได้แค่ไหน และข้อความปฏิเสธความรับผิดชอบท้ายเว็บต้องเขียนอย่างไร
+        <strong>กรุณาให้ที่ปรึกษากฎหมายยืนยันก่อนตอบ</strong> — เราเป็นทีมออกแบบ ไม่สามารถให้คำแนะนำทางกฎหมายได้</p>
+      <label class="opt"><input type="radio" name="a1" value="มีใบอนุญาต / ขึ้นทะเบียนกับ ก.ล.ต."><span>มีใบอนุญาต หรือขึ้นทะเบียนกับ ก.ล.ต. แล้ว</span></label>
+      <label class="opt"><input type="radio" name="a1" value="ไม่มีใบอนุญาต — ให้ความรู้และวางกระบวนการเท่านั้น"><span>ไม่มีใบอนุญาต — ให้บริการเป็นการให้ความรู้และวางกระบวนการเท่านั้น</span></label>
+      <label class="opt"><input type="radio" name="a1" value="ยังไม่แน่ใจ — กำลังปรึกษาทนาย"><span>ยังไม่แน่ใจ กำลังปรึกษาที่ปรึกษากฎหมายอยู่</span></label>
+      <input type="text" name="a1_no" placeholder="เลขที่ใบอนุญาต / เลขทะเบียน (ถ้ามี)">
+      <input type="text" name="a1_law" placeholder="ชื่อและช่องทางติดต่อที่ปรึกษากฎหมาย (ถ้ามี)">
+    </div>
+
+    <div class="q q--block">
+      <p class="q__id" lang="en">A2 · LAUNCH BLOCKER</p>
+      <p class="q__label">ใบรับรอง วุฒิการศึกษา และสังกัด</p>
+      <p class="q__hint">ตอนนี้เว็บยังไม่มีตัวเลขผลงานจริง เราจึงใช้ <em>คุณวุฒิ</em> เป็นสิ่งที่สร้างความน่าเชื่อถือแทน
+        — ข้อนี้จึงสำคัญมาก ใส่มาให้ครบเท่าที่มี ทั้งภาษาไทยและอังกฤษ</p>
+      <textarea name="a2" placeholder="ตัวอย่าง:&#10;• ปริญญาตรี ... มหาวิทยาลัย ... (ปี)&#10;• CISSP / Security+ / CFA / CISA ... (ปีที่ได้)&#10;• สมาชิก / สังกัด ...&#10;• ประสบการณ์ทำงานที่เกี่ยวข้อง ... ปี"></textarea>
+    </div>
+
+    <div class="q q--block">
+      <p class="q__id" lang="en">A3 · LAUNCH BLOCKER</p>
+      <p class="q__label">ขอบเขตบริการที่บรรยายบนเว็บได้</p>
+      <p class="q__hint">ตอนนี้เว็บเขียนว่าคุณให้คำปรึกษาเรื่อง หุ้นต่างประเทศ, <span lang="en">Options</span>,
+        <span lang="en">Pink Sheets</span> และคริปโต — ถ้าสถานะใบอนุญาตไม่รองรับ เราต้องเปลี่ยนวิธีเขียนทั้งหน้า
+        จากการ "แนะนำให้ลงทุน" เป็น "สอนวิธีประเมิน" ซึ่งกระทบทั้งพาดหัวและเนื้อหา ไม่ใช่แค่ท้ายเว็บ</p>
+      <label class="opt"><input type="radio" name="a3" value="บรรยายได้ตามที่เขียนไว้"><span>บรรยายได้ตามที่เขียนไว้ตอนนี้</span></label>
+      <label class="opt"><input type="radio" name="a3" value="ต้องปรับเป็นเชิงให้ความรู้ ไม่ชี้นำรายตัว"><span>ต้องปรับเป็นเชิงให้ความรู้ ไม่ชี้นำหลักทรัพย์รายตัว</span></label>
+      <label class="opt"><input type="radio" name="a3" value="ต้องตัดบางบริการออก"><span>ต้องตัดบางบริการออกจากเว็บ</span></label>
+      <textarea name="a3_note" placeholder="ถ้าต้องตัดหรือปรับ ระบุว่าบริการไหน และควรเขียนแทนว่าอย่างไร"></textarea>
+    </div>
+  </section>
+
+  <!-- ══════════ PART B ══════════ -->
+  <section class="part">
+    <div class="part__head">
+      <span class="part__tag" lang="en">PART B</span>
+      <h2>การตัดสินใจเรื่องเว็บ</h2>
+    </div>
+    <p class="part__sub">ทุกข้อมีค่าเริ่มต้นที่เราแนะนำไว้แล้ว ถ้าเห็นด้วยก็เลือกข้อที่ติดป้าย “แนะนำ” ได้เลย</p>
+
+    <div class="q">
+      <p class="q__id" lang="en">B1</p>
+      <p class="q__label">ฉากพื้นหลังเคลื่อนไหว</p>
+      <p class="q__hint">คุณขอพื้นหลังชายหาดมีนกบิน เราทำให้แล้วแต่ปรับเป็น <strong>ขอบฟ้ายามรุ่งอรุณเหนือทะเลลึก</strong>
+        — ยังมีท้องฟ้า น้ำ และนกบินช้า ๆ ครบ แต่ไม่ทำให้เว็บที่ปรึกษาการเงินดูเหมือนเว็บท่องเที่ยว ลองดูในเว็บตัวอย่างแล้วเลือก</p>
+      <label class="opt"><input type="radio" name="b1" value="ขอบฟ้ายามรุ่งอรุณ (แนะนำ)"><span>ขอบฟ้ายามรุ่งอรุณเหนือทะเล<span class="opt__rec" lang="en">แนะนำ</span></span></label>
+      <label class="opt"><input type="radio" name="b1" value="ชายหาดจริง แบบจาง"><span>ชายหาดจริง แต่ทำให้จางลงมากจนเป็นพื้นผิว</span></label>
+      <label class="opt"><input type="radio" name="b1" value="ไม่ต้องมีฉากเคลื่อนไหว"><span>ไม่ต้องมีฉากเคลื่อนไหวเลย</span></label>
+    </div>
+
+    <div class="q">
+      <p class="q__id" lang="en">B2</p>
+      <p class="q__label">ราคา</p>
+      <p class="q__hint">ในธุรกิจการเงิน การไม่บอกราคาเลยมักถูกตีความว่าเลี่ยง ถ้าบอกราคาเต็มไม่ได้ ให้บอกเป็นช่วงพร้อมบอกว่าอะไรทำให้ราคาต่างกัน</p>
+      <label class="opt"><input type="radio" name="b2" value="แสดงราคาจริง"><span>แสดงราคาจริง</span></label>
+      <label class="opt"><input type="radio" name="b2" value="แสดงเป็นช่วงราคา (แนะนำ)"><span>แสดงเป็นช่วงราคา<span class="opt__rec" lang="en">แนะนำ</span></span></label>
+      <label class="opt"><input type="radio" name="b2" value="ไม่แสดงราคา"><span>ไม่แสดงราคา ให้ติดต่อสอบถามอย่างเดียว</span></label>
+      <div class="grid2">
+        <input type="text" name="b2_p1" placeholder="แพ็กเกจ 1 — ปรึกษารายครั้ง (บาท/ชม.)">
+        <input type="text" name="b2_p2" placeholder="แพ็กเกจ 2 — ตรวจสอบ + วางแผน (บาท)">
+      </div>
+      <input type="text" name="b2_p3" placeholder="แพ็กเกจ 3 — ที่ปรึกษาองค์กร (บาท หรือ ตามขอบเขตงาน)">
+    </div>
+
+    <div class="q">
+      <p class="q__id" lang="en">B3</p>
+      <p class="q__label">ตรวจสุขภาพความปลอดภัย ฟรี 15 นาที</p>
+      <p class="q__hint">ปุ่มนี้อยู่บนเว็บแล้วและน่าจะได้ผลดีกว่าปุ่ม “จองคิวปรึกษา” เพราะคนกดง่ายกว่า
+        <strong>แต่เป็นข้อความที่เราเขียนเสนอเอง ไม่ได้อยู่ในบรีฟของคุณ</strong> — ถ้ารับ ควรจำกัดจำนวนคิวไว้ด้วย</p>
+      <label class="opt"><input type="radio" name="b3" value="รับ — จำกัดจำนวนคิว (แนะนำ)"><span>รับ และจำกัดจำนวนคิวต่อสัปดาห์<span class="opt__rec" lang="en">แนะนำ</span></span></label>
+      <label class="opt"><input type="radio" name="b3" value="รับ — ไม่จำกัด"><span>รับ โดยไม่จำกัดจำนวน</span></label>
+      <label class="opt"><input type="radio" name="b3" value="ไม่รับ — เปลี่ยนเป็นดูบริการทั้งหมด"><span>ไม่รับ — เปลี่ยนปุ่มเป็น “ดูบริการทั้งหมด”</span></label>
+      <input type="text" name="b3_n" placeholder="ถ้าจำกัด — รับได้กี่คิวต่อสัปดาห์">
+    </div>
+
+    <div class="q">
+      <p class="q__id" lang="en">B4</p>
+      <p class="q__label">เกจคะแนนความปลอดภัย</p>
+      <p class="q__hint">ตอนนี้ทำเป็น <strong>ตัวอย่างรายงาน</strong> คะแนน 72 และมีหัวข้อหนึ่งที่คะแนนต่ำ
+        ตั้งใจให้ไม่สวยเกินจริง เพราะรายงานที่ได้คะแนนเต็มดูไม่น่าเชื่อ และเกจที่ไม่ติดป้ายว่าเป็นตัวอย่างจะทำให้คนเข้าใจผิดว่าเป็นคะแนนของตัวเอง</p>
+      <label class="opt"><input type="radio" name="b4" value="ตัวอย่างรายงาน (แนะนำ)"><span>คงไว้เป็นตัวอย่างรายงาน<span class="opt__rec" lang="en">แนะนำ</span></span></label>
+      <label class="opt"><input type="radio" name="b4" value="ทำเป็นแบบประเมินจริง 5-7 ข้อ"><span>ทำเป็นแบบประเมินจริงให้ผู้เข้าชมตอบ 5–7 ข้อ (งานเพิ่ม คุณต้องออกแบบเกณฑ์เอง)</span></label>
+      <label class="opt"><input type="radio" name="b4" value="ตัดออก"><span>ตัดออกไปเลย</span></label>
+    </div>
+
+    <div class="q">
+      <p class="q__id" lang="en">B5</p>
+      <p class="q__label">แถบราคาตลาด (<span lang="en">ticker</span>)</p>
+      <p class="q__hint">ตอนนี้เป็นข้อมูลตัวอย่าง ติดป้าย <span lang="en">DEMO</span> ไว้
+        <strong>ข้อมูล SET ไม่ฟรี</strong> — ค่าบริการประมาณ 15,000 บาท/เดือน และการแสดงบนเว็บสาธารณะนับเป็นการเผยแพร่ต่อ ต้องเจรจาแยก
+        ส่วนคริปโต ทองคำ และอัตราแลกเปลี่ยน มีแหล่งข้อมูลฟรีที่ใช้ได้</p>
+      <label class="opt"><input type="radio" name="b5" value="ตัด SET ออก ใช้ตลาดโลก + คริปโต (แนะนำ)"><span>ตัด SET ออก ใช้ตลาดโลกและคริปโตแทน<span class="opt__rec" lang="en">แนะนำ</span></span></label>
+      <label class="opt"><input type="radio" name="b5" value="ฝังวิดเจ็ต TradingView"><span>ฝังวิดเจ็ต <span lang="en">TradingView</span> (ฟรี แต่ติดโลโก้เขา)</span></label>
+      <label class="opt"><input type="radio" name="b5" value="ซื้อ licence SET"><span>ซื้อสิทธิ์ข้อมูล SET</span></label>
+      <label class="opt"><input type="radio" name="b5" value="ตัดแถบราคาออก"><span>ตัดแถบราคาออกทั้งหมด</span></label>
+    </div>
+
+    <div class="q">
+      <p class="q__id" lang="en">B6</p>
+      <p class="q__label">ระบบจองคิว</p>
+      <label class="opt"><input type="radio" name="b6" value="Cal.com (แนะนำ)"><span><span lang="en">Cal.com</span> — ฟรี เชื่อมปฏิทินได้<span class="opt__rec" lang="en">แนะนำ</span></span></label>
+      <label class="opt"><input type="radio" name="b6" value="Calendly"><span lang="en">Calendly</span></label>
+      <label class="opt"><input type="radio" name="b6" value="ฟอร์มส่งเข้าอีเมล"><span>ฟอร์มธรรมดา ส่งเข้าอีเมล</span></label>
+      <label class="opt"><input type="radio" name="b6" value="LINE Official Account"><span><span lang="en">LINE Official Account</span></span></label>
+      <input type="text" name="b6_acc" placeholder="ถ้ามีบัญชีอยู่แล้ว ใส่ลิงก์หรือชื่อผู้ใช้">
+    </div>
+
+    <div class="q">
+      <p class="q__id" lang="en">B7</p>
+      <p class="q__label">ตัวเลขผลงานจริง</p>
+      <p class="q__hint">ถ้ามีตัวเลขที่ยืนยันได้ เราจะใส่ไว้ตรงส่วนบนสุดของเว็บ <strong>ถ้ายังไม่มี เราจะไม่ใส่ตัวเลขสมมติ</strong>
+        เพราะคนกลุ่มที่เว็บนี้ต้องการดึงดูด คือคนที่ระวังเรื่องการถูกหลอกอยู่แล้ว</p>
+      <label class="opt"><input type="radio" name="b7" value="มีตัวเลขจริง"><span>มีตัวเลขจริง (กรอกด้านล่าง)</span></label>
+      <label class="opt"><input type="radio" name="b7" value="ยังไม่มี — ใช้คุณวุฒิแทน (แนะนำ)"><span>ยังไม่มี — ใช้คุณวุฒิแทนไปก่อน<span class="opt__rec" lang="en">แนะนำ</span></span></label>
+      <div class="grid2">
+        <input type="text" name="b7_a" placeholder="จำนวนลูกค้าที่ปรึกษาแล้ว">
+        <input type="text" name="b7_b" placeholder="มูลค่าสินทรัพย์ภายใต้คำแนะนำ">
+      </div>
+      <input type="text" name="b7_c" placeholder="ตัวเลขอื่นที่ยืนยันได้ เช่น จำนวนปีประสบการณ์ จำนวนองค์กรที่ตรวจสอบ">
+    </div>
+
+    <div class="q">
+      <p class="q__id" lang="en">B8</p>
+      <p class="q__label">โลโก้ · โดเมน · ช่องทางติดต่อ</p>
+      <label class="opt"><input type="radio" name="b8" value="มีโลโก้แล้ว จะส่งไฟล์ให้"><span>มีโลโก้อยู่แล้ว จะส่งไฟล์ให้</span></label>
+      <label class="opt"><input type="radio" name="b8" value="ยังไม่มี ให้ออกแบบให้ (แนะนำ)"><span>ยังไม่มี ให้เราออกแบบตัวอักษรชื่อให้<span class="opt__rec" lang="en">แนะนำ</span></span></label>
+      <input type="text" name="b8_dom" placeholder="โดเมนที่ต้องการ เช่น ohm-advisory.com (ถ้ายังไม่มีเว้นไว้ได้)">
+      <div class="grid2">
+        <input type="email" name="b8_em" placeholder="อีเมลสำหรับติดต่องาน">
+        <input type="text" name="b8_ph" placeholder="เบอร์โทร (ถ้าต้องการแสดง)">
+      </div>
+      <div class="grid2">
+        <input type="text" name="b8_line" placeholder="LINE ID / LINE OA">
+        <input type="text" name="b8_soc" placeholder="LinkedIn / Facebook / X (ถ้ามี)">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ PART C ══════════ -->
+  <section class="part">
+    <div class="part__head">
+      <span class="part__tag" lang="en">PART C</span>
+      <h2>ข้อความที่ต้องให้คุณเขียนเอง</h2>
+    </div>
+    <p class="part__sub">ส่วนนี้เราเขียนแทนไม่ได้ เพราะต้องเป็นน้ำเสียงและเรื่องราวของคุณจริง ๆ — เขียนแบบพูดปกติได้เลย เราเกลาให้ทีหลัง</p>
+
+    <div class="q">
+      <p class="q__id" lang="en">C1</p>
+      <p class="q__label">เกี่ยวกับคุณ — 2 ถึง 3 ย่อหน้า</p>
+      <p class="q__hint">ตอนนี้เราเขียนตัวอย่างไว้ให้แล้วในเว็บ คุณจะแก้จากของเดิมหรือเขียนใหม่ก็ได้
+        สิ่งที่ควรมี: คุณมาทำงานนี้ได้อย่างไร ทำไมถึงสนใจสองเรื่องนี้พร้อมกัน และคุณมองปัญหาของลูกค้าอย่างไร</p>
+      <textarea name="c1" rows="7" placeholder="ย่อหน้าที่ 1 — คุณทำอะไร และทำไม&#10;&#10;ย่อหน้าที่ 2 — คุณทำงานกับลูกค้าอย่างไร&#10;&#10;ย่อหน้าที่ 3 (ถ้ามี) — อะไรที่ทำให้คุณต่างจากที่ปรึกษาคนอื่น"></textarea>
+    </div>
+
+    <div class="q">
+      <p class="q__id" lang="en">C2</p>
+      <p class="q__label">ประโยคเด่นหนึ่งประโยค</p>
+      <p class="q__hint">จะถูกวางเป็นข้อความขนาดใหญ่ตัวอักษรแบบมีเชิง เป็นจุดเดียวในเว็บที่ใช้ฟอนต์นี้
+        ตอนนี้ใส่ตัวอย่างไว้ว่า <em>“ความปลอดภัยไม่ใช่ค่าใช้จ่ายที่มาทีหลัง แต่เป็นเงื่อนไขที่ทำให้การเติบโตนั้นเก็บไว้ได้จริง”</em></p>
+      <textarea name="c2" rows="3" placeholder="ประโยคที่คุณอยากให้คนจำ — ประโยคเดียว ไม่เกินสองบรรทัด"></textarea>
+    </div>
+
+    <div class="q">
+      <p class="q__id" lang="en">C3</p>
+      <p class="q__label">เคสตัวอย่างหรือรีวิวลูกค้า</p>
+      <p class="q__hint">ไม่ต้องใส่ชื่อจริงก็ได้ เช่น “ผู้บริหาร <span lang="en">SME</span> กรุงเทพฯ” ก็ใช้ได้
+        <strong>แต่ต้องเป็นเรื่องจริง</strong> ถ้ายังไม่มี เราจะตัดส่วนนี้ออกจนกว่าจะมี</p>
+      <textarea name="c3" rows="6" placeholder="เคสที่ 1 — ลูกค้าแบบไหน เจอปัญหาอะไร คุณทำอะไร ผลเป็นอย่างไร&#10;&#10;เคสที่ 2 — ..."></textarea>
+    </div>
+
+    <div class="q">
+      <p class="q__id" lang="en">C4</p>
+      <p class="q__label">คำถามที่ลูกค้าถามบ่อย</p>
+      <p class="q__hint">ตอนนี้เราเขียนไว้ให้ 6 ข้อแล้ว อยากรู้ว่ามีคำถามไหนที่คุณเจอบ่อยจริง ๆ แต่ยังไม่มีในนั้น</p>
+      <textarea name="c4" rows="5" placeholder="คำถาม — คำตอบ&#10;คำถาม — คำตอบ"></textarea>
+    </div>
+
+    <div class="q">
+      <p class="q__id" lang="en">C5</p>
+      <p class="q__label">อยากแก้อะไรในเว็บตัวอย่างบ้าง</p>
+      <p class="q__hint">บอกได้ตรง ๆ ทุกเรื่อง — สี ขนาดตัวอักษร ลำดับหัวข้อ คำที่ไม่ชอบ ส่วนที่อยากตัด ส่วนที่อยากเพิ่ม</p>
+      <textarea name="c5" rows="5" placeholder="สิ่งที่ชอบ:&#10;&#10;สิ่งที่อยากแก้:&#10;&#10;สิ่งที่ขาดไป:"></textarea>
+    </div>
+  </section>
+
+  <!-- ══════════ PART D ══════════ -->
+  <section class="part">
+    <div class="part__head">
+      <span class="part__tag" lang="en">PART D</span>
+      <h2>ไฟล์ที่ต้องส่งแยกมา</h2>
+    </div>
+    <p class="part__sub">ส่งทางอีเมล <span lang="en">Google Drive</span> หรือ <span lang="en">WeTransfer</span> ก็ได้ — ติ๊กช่องที่ส่งแล้วเพื่อให้เราตามงานถูก</p>
+
+    <div class="q">
+      <ul class="files">
+        <li><label><input type="checkbox" name="d0" value="Profile.png" checked disabled>
+          <span><strong>รูปโปรไฟล์ปัจจุบัน</strong><small>ได้รับแล้วและใส่ลงเว็บให้แล้ว — ย่อจาก 3.93 MB เหลือ 28 KB</small></span>
+          <span class="have" lang="en">ได้รับแล้ว ✓</span></label></li>
+
+        <li><label><input type="checkbox" name="d1" value="ภาพถ่ายบุคคลแบบมืออาชีพ">
+          <span><strong>ภาพถ่ายบุคคลแบบมืออาชีพ</strong><small>รูปปัจจุบันเป็นรูปติดบัตรหน้าตรง ใช้ได้ แต่ถ้าถ่ายใหม่จะทำให้ส่วนนี้ดูดีขึ้นมาก
+            — พื้นหลังสีเข้ม (เขียวเข้มหรือเทาเข้ม) ไฟส่องจากด้านข้างด้านเดียว ไม่ใช่ไฟวงแหวนหน้าตรง ถ่ายครึ่งตัว อัตราส่วน 4:5 ความกว้างอย่างน้อย 2400 พิกเซล
+            เสื้อเชิ้ตหรือสูทไม่ผูกเนกไท สีหน้าสงบ มองกล้อง</small></span></label></li>
+
+        <li><label><input type="checkbox" name="d2" value="ภาพบรรยากาศการทำงาน 2-3 รูป">
+          <span><strong>ภาพบรรยากาศการทำงาน 2–3 รูป</strong><small>ที่โต๊ะทำงาน หน้าจอหลายจอ หรือระหว่างประชุม แสงธรรมชาติ ไม่ต้องจัดฉากแบบโฆษณา</small></span></label></li>
+
+        <li><label><input type="checkbox" name="d3" value="ภาพรายละเอียด 3-4 รูป">
+          <span><strong>ภาพรายละเอียด 3–4 รูป</strong><small>มือบนคีย์บอร์ด <span lang="en">hardware wallet</span> สมุดจดที่มีลายมือ หน้าจอกราฟ — ถ่ายชัดตื้น ใช้แทรกระหว่างหัวข้อ</small></span></label></li>
+
+        <li><label><input type="checkbox" name="d4" value="โลโก้">
+          <span><strong>ไฟล์โลโก้ (ถ้ามี)</strong><small>ขอเป็น <span lang="en">SVG</span> ถ้าได้ ถ้าไม่มีขอ <span lang="en">PNG</span> พื้นหลังใส ความกว้างอย่างน้อย 1000 พิกเซล</small></span></label></li>
+
+        <li><label><input type="checkbox" name="d5" value="ตราสัญลักษณ์ใบรับรอง">
+          <span><strong>ตราสัญลักษณ์ใบรับรอง</strong><small><strong>ขอแบบสีเข้มหรือสีเต็ม</strong> — แถบนี้พื้นหลังสีอ่อน ถ้าส่งโลโก้สีขาวมาจะมองไม่เห็น</small></span></label></li>
+
+        <li><label><input type="checkbox" name="d6" value="ภาพหน้าจอรายงานจริง">
+          <span><strong>ภาพหน้าจอรายงานที่คุณใช้จริง</strong><small>ปิดบังข้อมูลลูกค้าให้เรียบร้อยก่อน — ใช้ทำภาพตัวอย่าง <span lang="en">Dashboard</span> ให้เหมือนของจริง
+            ตอนนี้เราวาดจำลองไว้ก่อน</small></span></label></li>
+
+        <li><label><input type="checkbox" name="d7" value="ลายเซ็น">
+          <span><strong>ลายเซ็น</strong><small>เซ็นบนกระดาษขาวด้วยปากกาสีเข้ม แล้วสแกนหรือถ่ายให้ชัด — ใส่ท้ายส่วนแนะนำตัว ช่วยเรื่องความน่าเชื่อถือมาก</small></span></label></li>
+      </ul>
+    </div>
+
+    <div class="q">
+      <p class="q__id" lang="en">D9</p>
+      <p class="q__label">อย่างอื่นที่อยากบอกเรา</p>
+      <textarea name="d9" rows="4" placeholder="อะไรก็ได้ที่คิดว่าเราควรรู้"></textarea>
+    </div>
+  </section>
+
+  </form>
+</div>
+
+<div class="bar">
+  <div class="wrap bar__in">
+    <div class="progress">
+      <div class="progress__track"><div class="progress__fill" id="pf"></div></div>
+      <p class="progress__txt" id="pt">ตอบแล้ว 0 จาก 0</p>
+    </div>
+    <span class="saved" id="savedMsg"></span>
+    <button type="button" class="btn btn--gh" id="clearBtn">ล้างคำตอบ</button>
+    <button type="button" class="btn btn--go" id="genBtn">สร้างไฟล์คำตอบ</button>
+  </div>
+</div>
+
+<dialog id="dlg">
+  <div class="dlg__h">
+    <h3>คำตอบของคุณ</h3>
+    <button type="button" class="btn btn--gh" id="closeBtn" style="color:var(--text-strong);border-color:var(--sand-400)">ปิด</button>
+  </div>
+  <div class="dlg__b">
+    <p style="font-size:.86rem;color:var(--text-muted);margin-bottom:10px">
+      กดปุ่ม <strong>ดาวน์โหลด</strong> แล้วส่งไฟล์กลับมา หรือจะกด <strong>คัดลอก</strong> แล้ววางในอีเมลก็ได้
+    </p>
+    <textarea id="out" readonly></textarea>
+  </div>
+  <div class="dlg__f">
+    <button type="button" class="btn btn--go" id="dlBtn">ดาวน์โหลดไฟล์</button>
+    <button type="button" class="btn btn--gh" id="copyBtn">คัดลอกข้อความ</button>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  'use strict';
+  var KEY = 'ohm-intake-v1';
+  var form = document.getElementById('f');
+
+  /* ---- storage helpers: every access wrapped, page must work without it ---- */
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ return {}; } }
+  function save(d){ try { localStorage.setItem(KEY, JSON.stringify(d)); return true; } catch(e){ return false; } }
+
+  function collect(){
+    var d = {};
+    form.querySelectorAll('input,textarea,select').forEach(function(el){
+      if (el.disabled) return;
+      if (el.type === 'radio') { if (el.checked) d[el.name] = el.value; }
+      else if (el.type === 'checkbox') { d[el.name] = el.checked ? el.value : ''; }
+      else if (el.value.trim()) { d[el.name] = el.value.trim(); }
+    });
+    return d;
+  }
+
+  function restore(){
+    var d = load();
+    form.querySelectorAll('input,textarea,select').forEach(function(el){
+      if (el.disabled || !(el.name in d)) return;
+      if (el.type === 'radio') { el.checked = (d[el.name] === el.value); }
+      else if (el.type === 'checkbox') { el.checked = !!d[el.name]; }
+      else { el.value = d[el.name]; }
+    });
+  }
+
+  /* ---- progress ---- */
+  var groups = (function(){
+    var names = {}, out = [];
+    form.querySelectorAll('input,textarea').forEach(function(el){
+      if (el.disabled || el.type === 'checkbox') return;
+      if (!names[el.name]) { names[el.name] = 1; out.push(el.name); }
+    });
+    return out;
+  })();
+
+  function updateProgress(){
+    var d = collect(), n = 0;
+    groups.forEach(function(g){ if (d[g]) n++; });
+    var pct = groups.length ? Math.round(100 * n / groups.length) : 0;
+    document.getElementById('pf').style.width = pct + '%';
+    document.getElementById('pt').textContent = 'ตอบแล้ว ' + n + ' จาก ' + groups.length + ' ข้อ (' + pct + '%)';
+  }
+
+  var saveTimer;
+  form.addEventListener('input', function(){
+    updateProgress();
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){
+      var ok = save(collect());
+      var m = document.getElementById('savedMsg');
+      m.textContent = ok ? 'บันทึกแล้ว ✓' : '';
+      setTimeout(function(){ m.textContent = ''; }, 1600);
+    }, 500);
+  });
+  form.addEventListener('change', function(){ updateProgress(); save(collect()); });
+
+  /* ---- output ---- */
+  var LABELS = {};
+  form.querySelectorAll('.q').forEach(function(q){
+    var id = (q.querySelector('.q__id') || {}).textContent || '';
+    var lab = (q.querySelector('.q__label') || {}).textContent || '';
+    q.querySelectorAll('input,textarea').forEach(function(el){
+      if (!el.name) return;
+      LABELS[el.name] = { id: id.split('·')[0].trim(), label: lab.trim() };
+    });
+  });
+
+  function build(){
+    var d = collect();
+    var L = [];
+    L.push('# ข้อมูลสำหรับเว็บไซต์ — ศักดินนท์ เศรษฐสิงห์ (โอม)');
+    L.push('');
+    L.push('ส่งเมื่อ: ' + new Date().toLocaleString('th-TH'));
+    var n = 0; groups.forEach(function(g){ if (d[g]) n++; });
+    L.push('ความครบถ้วน: ' + n + '/' + groups.length + ' ข้อ');
+    L.push('');
+    L.push('---');
+
+    var parts = form.querySelectorAll('section.part');
+    parts.forEach(function(sec){
+      var tag = (sec.querySelector('.part__tag')||{}).textContent || '';
+      var h   = (sec.querySelector('h2')||{}).textContent || '';
+      L.push(''); L.push('## ' + tag + ' — ' + h); L.push('');
+
+      sec.querySelectorAll('.q').forEach(function(q){
+        var qid = ((q.querySelector('.q__id')||{}).textContent || '').split('·')[0].trim();
+        var lab = ((q.querySelector('.q__label')||{}).textContent || '').trim();
+        var lines = [];
+        var seen = {};   // radio groups share a name — emit each group once
+
+        q.querySelectorAll('input,textarea').forEach(function(el){
+          if (el.disabled || !el.name) return;
+          var v = d[el.name];
+          if (!v) return;
+          if (seen[el.name]) return;
+          seen[el.name] = 1;
+          if (el.type === 'radio') lines.push('- เลือก: ' + v);
+          else if (el.type === 'checkbox') lines.push('- [x] ' + v);
+          else {
+            var ph = el.getAttribute('placeholder') || el.name;
+            ph = ph.split('\n')[0].replace(/^ตัวอย่าง:?\s*/, '');
+            if (el.tagName === 'TEXTAREA') {
+              lines.push('');
+              lines.push(v.split('\n').map(function(x){ return '  ' + x; }).join('\n'));
+            } else {
+              lines.push('- ' + ph + ': ' + v);
+            }
+          }
+        });
+
+        if (lab) {
+          L.push('### ' + (qid ? qid + ' · ' : '') + lab);
+          L.push(lines.length ? lines.join('\n') : '_(ยังไม่ได้ตอบ)_');
+          L.push('');
+        } else if (lines.length) {
+          L.push('### ไฟล์ที่ส่งแล้ว');
+          L.push(lines.join('\n'));
+          L.push('');
+        }
+      });
+    });
+
+    L.push('---');
+    L.push('');
+    L.push('อ้างอิง: DESIGN-DOC.md v1.2 — ส่วน A ตรงกับ §11 ข้อ 3 และ 14, ส่วน B ตรงกับ §11, ส่วน D ตรงกับ §10');
+    return L.join('\n');
+  }
+
+  var dlg = document.getElementById('dlg');
+  document.getElementById('genBtn').onclick = function(){
+    document.getElementById('out').value = build();
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
+  };
+  document.getElementById('closeBtn').onclick = function(){
+    if (dlg.close) dlg.close(); else dlg.removeAttribute('open');
+  };
+  document.getElementById('copyBtn').onclick = function(){
+    var t = document.getElementById('out');
+    t.select();
+    try { document.execCommand('copy'); this.textContent = 'คัดลอกแล้ว ✓'; }
+    catch(e){ this.textContent = 'กด Ctrl+C เพื่อคัดลอก'; }
+    var b = this;
+    setTimeout(function(){ b.textContent = 'คัดลอกข้อความ'; }, 2000);
+  };
+  document.getElementById('dlBtn').onclick = function(){
+    var blob = new Blob([build()], { type: 'text/markdown;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'ohm-website-intake-' + new Date().toISOString().slice(0,10) + '.md';
+    a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+  };
+  document.getElementById('clearBtn').onclick = function(){
+    if (!confirm('ล้างคำตอบทั้งหมดและเริ่มใหม่?')) return;
+    try { localStorage.removeItem(KEY); } catch(e){}
+    form.reset();
+    updateProgress();
+  };
+
+  restore();
+  updateProgress();
+})();
+</script>
+</body>
+</html>

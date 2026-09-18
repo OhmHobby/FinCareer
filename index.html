@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<!--
+  Digital Portfolio & Career Roadmap: ศักดินนท์ เศรษฐสิงห์ (โอม)
+  โปรเจกต์ปลายภาค ม.5 · หน้าเว็บเดียว · 20 คะแนน
+
+  Maps to the four required components in the assignment brief:
+    ส่วนที่ 1  Professional Profile  → #hero, #role, #about
+    ส่วนที่ 2  Skills & Roadmap      → #skills, #roadmap
+    ส่วนที่ 3  Digital Ethics        → #ethics
+    ส่วนที่ 4  Attribution & AI      → #attribution
+
+  AUTHORING RULE (DESIGN-DOC §5.2):
+  <html lang="th"> means :lang(th) matches EVERY element unless overridden.
+  Every Latin run MUST carry lang="en" or it inherits Thai metrics.
+
+  TODO(ohm) markers show what still needs real data.
+-->
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ศักดินนท์ เศรษฐสิงห์: Fintech, Cybersecurity & Operational Finance Strategist</title>
+<meta name="description" content="แฟ้มสะสมงานดิจิทัลและแผนที่เส้นทางอาชีพ: ที่ปรึกษาด้านเทคโนโลยีการเงิน ความปลอดภัยไซเบอร์ และการลงทุนดิจิทัล">
+<meta name="theme-color" content="#0A1721">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="ศักดินนท์ เศรษฐสิงห์: Digital Career Roadmap">
+<meta property="og:description" content="Secure Your Capital, Master Global Markets">
+<meta property="og:image" content="assets/img/profile-880.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230A1721'/><path d='M20 62 Q50 38 80 62' stroke='%23D9A14F' stroke-width='7' fill='none' stroke-linecap='round'/><circle cx='50' cy='34' r='7' fill='%23D9A14F'/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Noto+Serif+Thai:wght@400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">ข้ามไปยังเนื้อหาหลัก</a>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="wordmark" href="#top">
+      <span class="wordmark__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28"><path d="M4 21 Q16 9 28 21" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="16" cy="8.5" r="2.6" fill="currentColor"/></svg>
+      </span>
+      <span class="wordmark__text">ศักดินนท์<span class="wordmark__sub" lang="en">SETTASING</span></span>
+    </a>
+
+    <nav class="nav__links" aria-label="เมนูหลัก">
+      <a href="#role">บทบาทอาชีพ</a>
+      <a href="#skills">ทักษะ</a>
+      <a href="#roadmap">เส้นทางอาชีพ</a>
+      <a href="#ethics">จริยธรรม</a>
+      <a href="#attribution">การอ้างอิง</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a class="btn btn--primary btn--sm" href="#contact">ติดต่อ</a>
+      <button class="nav__toggle" id="navToggle" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" hidden>
+  <nav aria-label="เมนูมือถือ">
+    <a href="#role">บทบาทอาชีพ</a>
+    <a href="#skills">ทักษะ</a>
+    <a href="#roadmap">เส้นทางอาชีพ</a>
+    <a href="#ethics">จริยธรรม</a>
+    <a href="#attribution">การอ้างอิง</a>
+    <a class="btn btn--primary" href="#contact">ติดต่อ</a>
+  </nav>
+</div>
+
+<main id="main">
+
+<!-- ══════════ 1. HERO: ส่วนที่ 1: Professional Profile ══════════ -->
+<section class="band band--scene hero" id="top">
+  <canvas class="scene-canvas" data-scene="hero" aria-hidden="true"></canvas>
+  <div class="scene-grain" aria-hidden="true"></div>
+
+  <div class="wrap hero__inner">
+    <p class="namecard reveal">
+      ศักดินนท์ เศรษฐสิงห์
+      <span class="namecard__sep" aria-hidden="true">|</span>
+      ม.5/8
+      <span class="namecard__sep" aria-hidden="true">|</span>
+      เลขที่ 26
+    </p>
+
+    <p class="overline reveal" lang="en" data-decrypt>TARGET CAREER · อาชีพเป้าหมาย</p>
+
+    <h1 class="display reveal" lang="en" data-decrypt>Fintech, Cybersecurity &amp;<br>Operational Finance Strategist</h1>
+
+    <p class="hero__th reveal">ที่ปรึกษาด้านเทคโนโลยีการเงิน ความปลอดภัยไซเบอร์ และการลงทุนดิจิทัล</p>
+
+    <blockquote class="slogan reveal">
+      <span lang="en">Secure Your Capital, Master Global Markets</span>
+      <em>นวัตกรรมความปลอดภัย เพื่อทุกการเติบโตทางการเงินโลก</em>
+    </blockquote>
+
+    <p class="hero__lead reveal">
+      อาชีพที่ผสานความเชี่ยวชาญด้านการลงทุนสากลเข้ากับความปลอดภัยไซเบอร์
+      ให้บริการทั้งนักลงทุนรายบุคคลและองค์กร ครอบคลุมการวางกลยุทธ์การลงทุน
+      การตรวจสอบความปลอดภัยของสินทรัพย์ดิจิทัล และการเลือกเทคโนโลยีการเงินที่เหมาะสมกับองค์กร
+    </p>
+
+    <div class="hero__cta reveal">
+      <a class="btn btn--primary" href="#role">ดูบทบาทหน้าที่</a>
+      <a class="btn btn--ghost" href="#roadmap">ดูแผนเส้นทางอาชีพ</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true"><span></span></div>
+</section>
+
+<!-- ══════════ TICKER ══════════ -->
+<!-- ข้อมูลตัวอย่างเพื่อสาธิตการประยุกต์เทคโนโลยี ไม่ใช่ข้อมูลจริง, ระบุไว้ใน #attribution -->
+<section class="ticker" aria-label="ภาวะตลาดโลก (ข้อมูลตัวอย่าง)">
+  <div class="ticker__label"><span lang="en">DEMO</span> · ข้อมูลตัวอย่าง</div>
+  <div class="ticker__viewport">
+    <div class="ticker__track" id="tickerTrack">
+      <span class="tk"><i lang="en">S&amp;P 500</i> <b lang="en">5,431.20</b> <u class="up" lang="en">▲0.42%</u></span>
+      <span class="tk"><i lang="en">NASDAQ</i> <b lang="en">17,688.88</b> <u class="up" lang="en">▲0.61%</u></span>
+      <span class="tk"><i lang="en">BTC/USD</i> <b lang="en">64,120.00</b> <u class="dn" lang="en">▼1.08%</u></span>
+      <span class="tk"><i lang="en">ETH/USD</i> <b lang="en">3,402.75</b> <u class="up" lang="en">▲0.24%</u></span>
+      <span class="tk"><i lang="en">XAU/USD</i> <b lang="en">2,341.60</b> <u class="up" lang="en">▲0.18%</u></span>
+      <span class="tk"><i lang="en">USD/THB</i> <b lang="en">36.42</b> <u class="dn" lang="en">▼0.09%</u></span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SCOPE BAR ══════════ -->
+<section class="band band--alt trust">
+  <div class="wrap">
+    <p class="trust__label reveal">ขอบเขตความเชี่ยวชาญของอาชีพนี้</p>
+    <ul class="trust__list reveal">
+      <li>หุ้นต่างประเทศ</li>
+      <li lang="en">Options</li>
+      <li lang="en">Pink Sheets</li>
+      <li>สินทรัพย์ดิจิทัล</li>
+      <li lang="en">Multi-sig / Cold Wallet</li>
+      <li lang="en">Trading API Security</li>
+      <li>โครงสร้างการเงินองค์กร</li>
+      <li lang="en">RegTech / PDPA</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════ WHY THIS CAREER ══════════ -->
+<section class="band">
+  <div class="wrap">
+    <p class="overline reveal" lang="en" data-decrypt>THE PROBLEM</p>
+    <h2 class="reveal">ทำไมอาชีพนี้จึงจำเป็น</h2>
+    <p class="section-lead reveal">คนส่วนใหญ่วางแผนให้เงิน “เติบโต” ได้ดี แต่ไม่ได้วางแผนให้เงิน “ไม่หายไป”: ช่องว่างนี้คือที่ที่อาชีพนี้ยืนอยู่</p>
+
+    <div class="split">
+      <div class="split__col reveal">
+        <p class="split__eyebrow">ฝั่งนักลงทุนรายบุคคล</p>
+        <p class="split__meta">อายุ 22–50+ ปี ที่ต้องการเข้าสู่ตลาดสากล</p>
+        <ul class="checklist">
+          <li>เปิดพอร์ตต่างประเทศได้ แต่ไม่รู้ว่าควรเริ่มตรงไหน</li>
+          <li>ถือคริปโตอยู่ แต่เก็บไว้บนกระดานเทรดทั้งหมด</li>
+          <li>สนใจ <span lang="en">Options</span> และ <span lang="en">Pink Sheets</span> โดยประเมินความเสี่ยงไม่ได้</li>
+          <li>สูญเงินจากความผิดพลาดที่ป้องกันได้ตั้งแต่ต้น</li>
+        </ul>
+      </div>
+
+      <div class="split__col reveal">
+        <p class="split__eyebrow">ฝั่งองค์กรและ <span lang="en">SMEs</span></p>
+        <p class="split__meta">ผู้บริหารที่ยังไม่มีทีมความปลอดภัยไซเบอร์</p>
+        <ul class="checklist">
+          <li>ถือสินทรัพย์ดิจิทัลในนามบริษัทโดยไม่มีระบบควบคุมสิทธิ์</li>
+          <li>ไม่ทราบว่าระบบการเงินภายในมีช่องโหว่ตรงไหน</li>
+          <li>ต้องเลือกเทคโนโลยีการเงินใหม่ แต่ประเมินความคุ้มค่าไม่ได้</li>
+          <li>มีหน้าที่ตาม <span lang="en">PDPA</span> แต่ไม่มีคนดูแลจริง</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 2. ROLE: Job Description ══════════ -->
+<section class="band band--alt" id="role">
+  <div class="wrap">
+    <p class="overline reveal" lang="en" data-decrypt>JOB DESCRIPTION</p>
+    <h2 class="reveal">บทบาทหน้าที่ความรับผิดชอบ</h2>
+    <p class="section-lead reveal">อาชีพนี้ทำงานผ่านระบบดิจิทัลสามระบบที่ทำงานต่อเนื่องกัน</p>
+
+    <div class="bento">
+
+      <article class="tile tile--lg tile--dark reveal">
+        <div class="tile__head">
+          <span class="tile__num" lang="en">02</span>
+          <span class="icon-tile icon-tile--aqua" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg>
+          </span>
+        </div>
+        <h3>ระบบตรวจสุขภาพความปลอดภัยไซเบอร์การเงิน</h3>
+        <p class="tile__en" lang="en">Cybersecurity &amp; Asset Audit</p>
+        <p class="tile__desc">ตรวจสอบว่าสินทรัพย์ถูกเก็บอย่างปลอดภัยจริงหรือไม่ และระบบการเงินขององค์กรมีช่องโหว่ตรงไหน</p>
+
+        <div class="gauge-block">
+          <p class="gauge-block__label">ตัวอย่างผลลัพธ์ · <span lang="en">Sample audit output</span></p>
+          <div class="gauge-row">
+            <div class="gauge" data-score="72">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="gauge__track" cx="60" cy="60" r="52"/>
+                <circle class="gauge__fill" cx="60" cy="60" r="52"/>
+              </svg>
+              <div class="gauge__val"><span class="gauge__num" data-count="72">0</span><span class="gauge__den">/100</span></div>
+            </div>
+            <ul class="subscores">
+              <li><span lang="en">Custody</span><em class="bar" style="--v:84%"><i></i></em><b data-count="84">0</b></li>
+              <li><span lang="en">API Security</span><em class="bar" style="--v:46%"><i class="weak"></i></em><b data-count="46">0</b></li>
+              <li><span lang="en">Access Control</span><em class="bar" style="--v:77%"><i></i></em><b data-count="77">0</b></li>
+            </ul>
+          </div>
+          <p class="gauge-block__note">คะแนนตัวอย่างแสดงจุดอ่อนที่พบบ่อย ไม่ใช่ผลการประเมินของผู้เข้าชม</p>
+        </div>
+
+        <ul class="feat feat--dark">
+          <li><span lang="en">Multi-sig</span> และ <span lang="en">Cold Wallet</span>: โครงสร้างการเก็บรักษา</li>
+          <li>ความปลอดภัยของ <span lang="en">API</span> ที่ใช้เทรด</li>
+          <li>ช่องโหว่ระบบการเงินองค์กร</li>
+        </ul>
+      </article>
+
+      <article class="tile reveal">
+        <div class="tile__head">
+          <span class="tile__num" lang="en">01</span>
+          <span class="icon-tile" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15h6"/></svg>
+          </span>
+        </div>
+        <h3>ระบบจองคิวและรับคำปรึกษาเฉพาะทาง</h3>
+        <p class="tile__en" lang="en">Strategic Consultation</p>
+        <p class="tile__desc">ให้คำปรึกษาแบบส่วนตัวหรือระดับองค์กร ครอบคลุมตลาดสากลและการปรับโครงสร้างการเงิน</p>
+        <ul class="feat">
+          <li>หุ้นต่างประเทศ · <span lang="en">Options</span> · <span lang="en">Pink Sheets</span></li>
+          <li><span lang="en">Crypto</span> และ <span lang="en">Tokenized Assets</span></li>
+          <li>การปรับโครงสร้างการเงินบริษัท</li>
+        </ul>
+      </article>
+
+      <article class="tile reveal">
+        <div class="tile__head">
+          <span class="tile__num" lang="en">03</span>
+          <span class="icon-tile" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 6-7"/><path d="M14 8h5v5"/></svg>
+          </span>
+        </div>
+        <h3>ระบบประเมินทิศทางเทคโนโลยี</h3>
+        <p class="tile__en" lang="en">Fintech Roadmap &amp; AI Integration</p>
+        <p class="tile__desc">แนะนำองค์กรว่าควรรับเทคโนโลยีการเงินตัวไหน ควรเลี่ยงตัวไหน และมีต้นทุนเท่าไร</p>
+        <ul class="feat">
+          <li>ประเมินความคุ้มค่าก่อนลงทุนระบบ</li>
+          <li>แผนติดตั้งรายไตรมาส</li>
+          <li>ความปลอดภัยเป็นเงื่อนไขตั้งต้น</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ DASHBOARD ══════════ -->
+<section class="band">
+  <div class="wrap">
+    <p class="overline reveal" lang="en" data-decrypt>THE DELIVERABLE</p>
+    <h2 class="reveal"><span lang="en">Dashboard</span> สรุปแผนกลยุทธ์</h2>
+    <p class="section-lead reveal">ทุกการปรึกษาจบด้วยเอกสารสรุปที่อ่านเข้าใจได้จริง ไม่ใช่ศัพท์เทคนิคที่ต้องตีความเอง</p>
+
+    <div class="dash reveal">
+      <div class="dash__chrome" aria-hidden="true"><i></i><i></i><i></i>
+        <span lang="en">strategy-summary.pdf</span>
+        <span class="dash__tag">ตัวอย่าง</span>
+      </div>
+      <div class="dash__body">
+        <div class="dash__col">
+          <p class="dash__h">การจัดสรรความเสี่ยง</p>
+          <ul class="alloc">
+            <li><span>ตลาดต่างประเทศ</span><em style="--v:45%"><i></i></em><b lang="en">45%</b></li>
+            <li><span>ตราสารหนี้ / เงินสด</span><em style="--v:30%"><i></i></em><b lang="en">30%</b></li>
+            <li><span>สินทรัพย์ดิจิทัล</span><em style="--v:15%"><i></i></em><b lang="en">15%</b></li>
+            <li><span>ทางเลือกอื่น</span><em style="--v:10%"><i></i></em><b lang="en">10%</b></li>
+          </ul>
+        </div>
+        <div class="dash__col">
+          <p class="dash__h">ขั้นตอนติดตั้งความปลอดภัย</p>
+          <ul class="steps-check">
+            <li class="done">แยกกระเป๋าเก็บระยะยาวออกจากกระเป๋าเทรด</li>
+            <li class="done">เปิด <span lang="en">Multi-sig</span> สำหรับบัญชีองค์กร</li>
+            <li class="now">จำกัดสิทธิ์ <span lang="en">API key</span> เป็นอ่านอย่างเดียว</li>
+            <li>ตั้งรอบตรวจสอบสิทธิ์เข้าถึงทุกไตรมาส</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="fine reveal">* ตัวเลขทั้งหมดในภาพเป็นข้อมูลตัวอย่างเพื่อแสดงรูปแบบรายงาน</p>
+  </div>
+</section>
+
+<!-- ══════════ 3. SKILLS: ส่วนที่ 2 (ก): ทักษะ ══════════ -->
+<section class="band band--alt" id="skills">
+  <div class="wrap">
+    <p class="overline reveal" lang="en" data-decrypt>SKILLS</p>
+    <h2 class="reveal">ทักษะที่อาชีพนี้ต้องใช้</h2>
+    <p class="section-lead reveal">แบ่งเป็นทักษะเชิงเทคนิคที่วัดผลได้ และทักษะเชิงมนุษย์ที่ตัดสินว่าคำแนะนำจะถูกนำไปใช้จริงหรือไม่</p>
+
+    <div class="skills">
+      <div class="skillcol reveal">
+        <h3 class="skillcol__h"><span lang="en">Hard Skills</span><small>ทักษะเชิงเทคนิค</small></h3>
+        <ol class="skilllist">
+          <li><span class="skilllist__n" lang="en">1</span>
+            <p><b lang="en">Digital Asset Custody</b>: ออกแบบระบบเก็บรักษาสินทรัพย์ดิจิทัลแบบ <span lang="en">Multi-signature</span> และ <span lang="en">Cold Storage</span> รวมถึงแผนกู้คืนกุญแจ</p></li>
+          <li><span class="skilllist__n" lang="en">2</span>
+            <p><b lang="en">API &amp; Cloud Security</b>: จำกัดสิทธิ์ <span lang="en">API key</span> ของระบบเทรด ตรวจการตั้งค่า <span lang="en">cloud</span> ที่เปิดสาธารณะโดยไม่ตั้งใจ</p></li>
+          <li><span class="skilllist__n" lang="en">3</span>
+            <p><b lang="en">Financial Data Analysis</b>: ใช้ <span lang="en">Python</span> และ <span lang="en">Power BI</span> วิเคราะห์ความเสี่ยงพอร์ตและทดสอบกลยุทธ์ย้อนหลัง</p></li>
+          <li><span class="skilllist__n" lang="en">4</span>
+            <p><b lang="en">RegTech &amp; Compliance</b>: เข้าใจ <span lang="en">PDPA</span>, <span lang="en">KYC/AML</span> และมาตรฐาน <span lang="en">SOC 2</span> มากพอจะแปลงเป็นข้อกำหนดทางเทคนิคได้</p></li>
+        </ol>
+      </div>
+
+      <div class="skillcol reveal">
+        <h3 class="skillcol__h"><span lang="en">Soft Skills</span><small>ทักษะเชิงมนุษย์</small></h3>
+        <ol class="skilllist skilllist--alt">
+          <li><span class="skilllist__n" lang="en">1</span>
+            <p><b lang="en">Risk Communication</b>: อธิบายความเสี่ยงทางเทคนิคให้ผู้บริหารที่ไม่ใช่สายไอทีตัดสินใจได้ โดยไม่ลดทอนความถูกต้อง</p></li>
+          <li><span class="skilllist__n" lang="en">2</span>
+            <p><b lang="en">Ethical Judgment</b>: ตัดสินใจเมื่อผลประโยชน์ของผู้ว่าจ้างขัดกับสิทธิของเจ้าของข้อมูล (ดูกรณีศึกษาด้านล่าง)</p></li>
+          <li><span class="skilllist__n" lang="en">3</span>
+            <p><b lang="en">Cross-disciplinary Collaboration</b>: ทำงานร่วมระหว่างทีมการเงินและทีมความปลอดภัย ซึ่งใช้คนละภาษาและมีคนละเป้าหมาย</p></li>
+          <li><span class="skilllist__n" lang="en">4</span>
+            <p><b lang="en">Continuous Learning</b>: ทั้งภัยคุกคามและกฎหมายเปลี่ยนทุกปี ความรู้ที่หยุดนิ่งคือความเสี่ยงในตัวมันเอง</p></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 4. ROADMAP: ส่วนที่ 2 (ข): แผนที่เส้นทางอาชีพ 3 ระยะ ══════════ -->
+<section class="band" id="roadmap">
+  <div class="wrap">
+    <p class="overline reveal" lang="en" data-decrypt>CAREER ROADMAP</p>
+    <h2 class="reveal">แผนที่เส้นทางอาชีพ 3 ระยะ</h2>
+    <p class="section-lead reveal">จากห้องเรียน ม.5 ไปจนถึงการเป็นที่ปรึกษาอิสระ, แต่ละระยะมีเป้าหมายที่วัดผลได้</p>
+
+    <ol class="roadmap">
+      <div class="roadmap__spine" aria-hidden="true"><span class="roadmap__fill" id="roadFill"></span></div>
+
+      <li class="stage reveal">
+        <div class="stage__node" aria-hidden="true">
+          <span class="stage__orb"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9L12 4 2 9l10 5 10-5z"/><path d="M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5"/></svg></span>
+          <span class="stage__orbnum" lang="en">01</span>
+        </div>
+        <div class="stage__body">
+          <div class="stage__tag"><span lang="en">STAGE 1</span> · ระยะเตรียมตัว</div>
+          <p class="stage__when">ม.5 – มหาวิทยาลัย</p>
+          <h3>สร้างฐานความรู้และพิสูจน์ด้วยผลงานจริง</h3>
+          <ul class="stage__list">
+            <li>เรียนต่อสาขา <span lang="en">Computer Engineering</span> หรือ <span lang="en">Financial Technology</span></li>
+            <li>สอบใบรับรอง <span lang="en">CompTIA Security+</span> เป็นใบแรก</li>
+            <li>ลงแข่ง <span lang="en">Hackathon</span> ต่อเนื่องปีละอย่างน้อย 2 รายการ</li>
+            <li>เข้าโครงการบ่มเพาะธุรกิจเพื่อเข้าใจฝั่งเงินทุน</li>
+            <li>ฝึกวิเคราะห์พอร์ตด้วย <span lang="en">Python</span> จากข้อมูลจริง</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="stage reveal">
+        <div class="stage__node" aria-hidden="true">
+          <span class="stage__orb"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M8 12h6M8 16h4"/></svg></span>
+          <span class="stage__orbnum" lang="en">02</span>
+        </div>
+        <div class="stage__body">
+          <div class="stage__tag"><span lang="en">STAGE 2</span> · ระยะเริ่มต้นทำงาน</div>
+          <p class="stage__when">1 – 3 ปีแรก</p>
+          <h3>เข้าสู่อาชีพในฐานะผู้ปฏิบัติ ไม่ใช่ที่ปรึกษา</h3>
+          <ul class="stage__list">
+            <li>เริ่มที่ตำแหน่ง <span lang="en">Security Analyst</span> หรือ <span lang="en">Fintech Analyst</span> ในธนาคารหรือบริษัท <span lang="en">fintech</span></li>
+            <li>สะสมงานตรวจสอบจริงให้ครบทั้งฝั่ง <span lang="en">custody</span> และฝั่งระบบองค์กร</li>
+            <li>สอบ <span lang="en">CISSP Associate</span> หรือ <span lang="en">CISA</span></li>
+            <li>เรียนรู้กรอบกฎหมาย <span lang="en">PDPA</span> จากการทำงานจริง ไม่ใช่จากตำรา</li>
+            <li>สร้างเครือข่ายทั้งสายการเงินและสายความปลอดภัย</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="stage reveal">
+        <div class="stage__node" aria-hidden="true">
+          <span class="stage__orb"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 15.8 6.6 18.6l1.2-6L3.3 8.4l6.1-.8z"/></svg></span>
+          <span class="stage__orbnum" lang="en">03</span>
+        </div>
+        <div class="stage__body">
+          <div class="stage__tag"><span lang="en">STAGE 3</span> · ระยะเติบโตและเชี่ยวชาญ</div>
+          <p class="stage__when">4 ปีขึ้นไป</p>
+          <h3>เป็นที่ปรึกษาอิสระที่รับผิดชอบผลลัพธ์ได้เต็มตัว</h3>
+          <ul class="stage__list">
+            <li>เปิดงานที่ปรึกษาอิสระ หรือตั้งบริษัทที่ปรึกษาขนาดเล็ก</li>
+            <li>ออกแบบระบบ <span lang="en">custody</span> ระดับองค์กรให้ลูกค้าโดยตรง</li>
+            <li>เป็นที่ปรึกษาด้าน <span lang="en">RegTech</span> ให้บริษัทที่กำลังระดมทุน</li>
+            <li>พัฒนาเครื่องมือประเมินความปลอดภัยของตัวเองเป็นผลิตภัณฑ์</li>
+            <li>ถ่ายทอดความรู้ต่อ ผ่านการสอนหรือเขียนเผยแพร่</li>
+          </ul>
+        </div>
+      </li>
+    
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════ 5. ABOUT ══════════ -->
+<section class="band band--alt" id="about">
+  <div class="wrap about">
+    <div class="about__media reveal">
+      <figure class="portrait">
+        <span class="portrait__horizon" aria-hidden="true"></span>
+        <picture>
+          <source type="image/webp"
+                  srcset="assets/img/profile-440.webp 440w, assets/img/profile-880.webp 880w"
+                  sizes="(max-width:1024px) 340px, 460px">
+          <!-- NOT lazy: primary content image at 11–28 KB; lazy loading proved
+               unreliable inside the transformed .reveal wrapper -->
+          <img src="assets/img/profile-880.jpg" width="880" height="880"
+               alt="ศักดินนท์ เศรษฐสิงห์" decoding="async" fetchpriority="low">
+        </picture>
+      </figure>
+    </div>
+
+    <div class="about__text">
+      <p class="overline reveal" lang="en" data-decrypt>ABOUT ME</p>
+      <h2 class="reveal">ทำไมผมเลือกเส้นทางนี้</h2>
+
+      <p class="reveal">ผมมีประสบการณ์กับสายเทคโนโลยีจากการแข่งขัน <span lang="en">Hackathon</span> หลายรายการ
+        ทั้ง <span lang="en">ThEP Hackathon</span> และ <span lang="en">PSRU Cyber Hackathon</span>
+        ซึ่งทำให้ผมได้ลงมือแก้ปัญหาจริงภายใต้เวลาจำกัด และเห็นว่าเทคโนโลยีที่ดีไม่ได้จบที่โค้ดที่ทำงานได้</p>
+
+      <p class="reveal">หลังจากเข้าอบรมในโครงการ <span lang="en">UBI Alpha</span> และ <span lang="en">BUILD</span>
+        ของมหาวิทยาลัยเชียงใหม่ ผมตกหลุมรักวัฒนธรรมของ <span lang="en">Startup</span>
+        และเข้าใจชัดขึ้นว่าการพัฒนาเทคโนโลยีให้ไปถึงคนใช้จริงนั้นต้องมีเงินทุนเป็นเชื้อเพลิงเสมอ
+        ผมจึงเลือกเส้นทางที่อยู่ตรงกลางระหว่างสองเรื่องนี้ แทนที่จะเลือกข้างใดข้างหนึ่ง</p>
+
+      <p class="reveal">ความชอบส่วนตัวของผมคือการได้มีส่วนร่วมผลักดันเทคโนโลยีให้ก้าวหน้าขึ้นอีกขั้น
+        และผมเชื่อว่าการทำให้เงินทุนปลอดภัย คือเงื่อนไขที่ทำให้เทคโนโลยีเติบโตต่อได้จริง</p>
+
+      <blockquote class="pull reveal">ความปลอดภัยไม่ใช่ค่าใช้จ่ายที่มาทีหลัง แต่เป็นเงื่อนไขที่ทำให้การเติบโตนั้นเก็บไว้ได้จริง</blockquote>
+
+      <dl class="creds reveal">
+        <div><dt>การแข่งขัน</dt><dd><span lang="en">ThEP Hackathon</span> · <span lang="en">PSRU Cyber Hackathon</span></dd></div>
+        <div><dt>โครงการอบรม</dt><dd><span lang="en">UBI Alpha</span> · <span lang="en">BUILD</span>, มหาวิทยาลัยเชียงใหม่</dd></div>
+        <div><dt>ความสนใจ</dt><dd>เทคโนโลยีการเงิน · ความปลอดภัยไซเบอร์ · วัฒนธรรม <span lang="en">Startup</span></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 6. ETHICS: ส่วนที่ 3: กรณีศึกษาจริยธรรม ══════════ -->
+<section class="band" id="ethics">
+  <div class="wrap">
+    <p class="overline reveal" lang="en" data-decrypt>DIGITAL ETHICS</p>
+    <h2 class="reveal">กรณีศึกษาจริยธรรมและพลเมืองดิจิทัล</h2>
+    <p class="section-lead reveal">สถานการณ์จำลองที่อาชีพนี้มีโอกาสเจอจริง พร้อมแนวทางแก้ไขตามกฎหมายไทย</p>
+
+    <div class="ethics">
+      <article class="ecard ecard--risk reveal">
+        <div class="ecard__head">
+          <span class="ecard__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 20h20L12 3z"/><path d="M12 10v4M12 17.5v.5"/></svg>
+          </span>
+          <h3>สถานการณ์</h3>
+        </div>
+        <p>ระหว่างตรวจสอบความปลอดภัยระบบการเงินให้บริษัทลูกค้าแห่งหนึ่ง ผมพบว่าฐานข้อมูลลูกค้ากว่า
+          <b>12,000 รายชื่อ</b> ซึ่งมีทั้งเลขบัญชีและเอกสารยืนยันตัวตน
+          ถูกเข้าถึงจากภายนอกมาแล้วประมาณ <b>3 เดือน</b> โดยบริษัทไม่เคยทราบมาก่อน</p>
+        <p>เมื่อผมรายงานให้ผู้บริหารที่ว่าจ้าง ผู้บริหารสั่งไม่ให้บันทึกเรื่องนี้ลงในรายงานฉบับสมบูรณ์
+          โดยให้เหตุผลว่าบริษัทกำลังจะปิดการระดมทุนรอบ <span lang="en">Series A</span> ภายในสองสัปดาห์
+          พร้อม<b>เสนอค่าตอบแทนเพิ่มเป็นสองเท่า</b> และอ้างว่าสัญญา <span lang="en">NDA</span>
+          ที่เซ็นไว้ครอบคลุมเรื่องนี้อยู่แล้ว</p>
+        <p class="ecard__q">คำถาม: ผมควรทำอย่างไร เมื่อคนที่จ่ายเงินให้ผม สั่งให้ปกปิดสิ่งที่กระทบคน 12,000 คนที่ไม่รู้ตัว</p>
+      </article>
+
+      <article class="ecard ecard--fix reveal">
+        <div class="ecard__head">
+          <span class="ecard__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg>
+          </span>
+          <h3>แนวทางแก้ไขตามหลักกฎหมาย</h3>
+        </div>
+
+        <ol class="fixlist">
+          <li>
+            <h4>หน้าที่ตามกฎหมายไม่ใช่สิ่งที่ผู้ว่าจ้างสั่งยกเลิกได้</h4>
+            <p><b>พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 มาตรา 37(4)</b> กำหนดให้ผู้ควบคุมข้อมูลส่วนบุคคล
+              ต้องแจ้งเหตุละเมิดต่อสำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล
+              <b>ภายใน 72 ชั่วโมงนับแต่ทราบเหตุ</b> เว้นแต่ประเมินแล้วว่าไม่มีความเสี่ยงต่อสิทธิและเสรีภาพของบุคคล
+              และเมื่อมีความเสี่ยงสูง ต้อง<b>แจ้งเจ้าของข้อมูลพร้อมมาตรการเยียวยาโดยไม่ชักช้า</b> ด้วย</p>
+            <p>กรณีนี้เป็นข้อมูลบัญชีและเอกสารยืนยันตัวตน จึงเข้าข่ายความเสี่ยงสูงชัดเจน
+              หน้าที่นี้เป็นของ<b>บริษัท</b>ในฐานะผู้ควบคุมข้อมูล ผู้บริหารจึงไม่มีอำนาจยกเว้นให้ตัวเอง</p>
+          </li>
+
+          <li>
+            <h4>ต้นทุนของการปกปิดสูงกว่าเงินที่เสนอมาก</h4>
+            <p>การไม่แจ้งเหตุตามกำหนดมีโทษ<b>ปรับทางปกครองสูงสุด 3,000,000 บาท</b> ตามมาตรา 83
+              หากแจ้งช้ากว่า 72 ชั่วโมงด้วยเหตุจำเป็น ยังต้องชี้แจงเหตุผลต่อสำนักงานภายใน 15 วัน
+              การเงียบไว้เฉย ๆ จึงไม่ใช่ทางเลือกที่มีอยู่จริงในทางกฎหมาย</p>
+          </li>
+
+          <li>
+            <h4><span lang="en">NDA</span> ไม่คุ้มครองการปกปิดการฝ่าฝืนกฎหมาย</h4>
+            <p>ข้อตกลงรักษาความลับมีไว้คุ้มครองความลับทางการค้า ไม่สามารถใช้เป็นเหตุให้ละเว้นหน้าที่ตามกฎหมายได้
+              และการรับเงินเพิ่มเพื่อแลกกับการปิดบัง อาจทำให้ผมกลายเป็นผู้มีส่วนร่วมในการกระทำผิดเสียเอง
+              ไม่ใช่เพียงพยานที่รู้เห็น</p>
+          </li>
+
+          <li>
+            <h4>สิ่งที่ผมจะทำจริง</h4>
+            <p>ส่งรายงานฉบับสมบูรณ์เป็นลายลักษณ์อักษร ระบุสิ่งที่พบ วันเวลาที่แจ้ง และหน้าที่ตามมาตรา 37(4)
+              พร้อมเก็บสำเนาไว้เป็นหลักฐาน · แจ้งให้บริษัททราบว่ากรอบเวลา 72 ชั่วโมงเริ่มนับแล้ว ·
+              ปฏิเสธค่าตอบแทนเพิ่มเป็นลายลักษณ์อักษร · หากบริษัทยังปฏิเสธที่จะแจ้ง ให้ยุติสัญญาและบันทึกเหตุผลไว้</p>
+          </li>
+
+          <li>
+            <h4>สิ่งที่ผมจะไม่ทำ และเหตุผล</h4>
+            <p>ผมจะ<b>ไม่</b>นำข้อมูลลูกค้าหรือหลักฐานไปเปิดเผยต่อสาธารณะหรือต่อสื่อด้วยตัวเอง
+              เพราะผมอยู่ในฐานะผู้ประมวลผลข้อมูล การเผยแพร่เองจะเป็นการละเมิด <span lang="en">PDPA</span> ซ้ำ
+              และทำให้เจ้าของข้อมูลทั้ง 12,000 รายเสียหายเพิ่มขึ้นอีกชั้น
+              ช่องทางที่ถูกต้องคือผลักดันให้บริษัทแจ้งเอง และหากยังเพิกเฉย
+              จึงแจ้งเบาะแสต่อสำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคลโดยตรง
+              ซึ่งเป็นหน่วยงานที่มีอำนาจตามกฎหมาย</p>
+          </li>
+        </ol>
+
+        <p class="ecard__principle">หลักพลเมืองดิจิทัลที่ใช้: ความรับผิดชอบต่อผู้ที่ไม่มีเสียงในเหตุการณ์
+          (เจ้าของข้อมูล 12,000 ราย) ต้องมาก่อนความสัมพันธ์ทางธุรกิจกับผู้ว่าจ้าง
+          และการรายงานต้องทำผ่านช่องทางที่ถูกกฎหมาย ไม่ใช่การประจาน</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 7. ATTRIBUTION: ส่วนที่ 4: การอ้างอิงและความโปร่งใส ══════════ -->
+<section class="band band--alt" id="attribution">
+  <div class="wrap">
+    <p class="overline reveal" lang="en" data-decrypt>ATTRIBUTION &amp; TRANSPARENCY</p>
+    <h2 class="reveal">การอ้างอิงและความโปร่งใส</h2>
+    <p class="section-lead reveal">แหล่งที่มาของทุกองค์ประกอบบนหน้านี้ และการเปิดเผยการใช้ <span lang="en">Generative AI</span> อย่างตรงไปตรงมา</p>
+
+    <div class="attrib reveal">
+      <h3 class="attrib__h">แหล่งที่มาและลิขสิทธิ์</h3>
+      <div class="tablewrap">
+        <table class="atable">
+          <thead><tr><th>รายการ</th><th>แหล่งที่มา</th><th>สิทธิ์การใช้งาน</th></tr></thead>
+          <tbody>
+            <tr><td><span lang="en">IBM Plex Sans / Sans Thai / Mono</span></td><td><span lang="en">IBM</span> ผ่าน <span lang="en">Google Fonts</span></td><td><span lang="en">SIL Open Font License 1.1</span></td></tr>
+            <tr><td><span lang="en">Noto Serif Thai</span></td><td><span lang="en">Google Fonts</span></td><td><span lang="en">SIL Open Font License 1.1</span></td></tr>
+            <tr><td>ไอคอนทั้งหมดบนหน้านี้</td><td>วาดเองเป็น <span lang="en">inline SVG</span></td><td>ผลงานของผู้จัดทำ</td></tr>
+            <tr><td>ภาพถ่ายบุคคล</td><td>ภาพถ่ายของผู้จัดทำเอง</td><td>ผลงานของผู้จัดทำ</td></tr>
+            <tr><td>ฉากพื้นหลังเคลื่อนไหว (ขอบฟ้า นก คลื่น)</td><td>เขียนด้วย <span lang="en">HTML Canvas</span> ไม่ได้ใช้ภาพหรือวิดีโอจากภายนอก</td><td>ผลงานของผู้จัดทำ</td></tr>
+            <tr><td>ตัวเลขในแถบราคาตลาดและ <span lang="en">Dashboard</span></td><td><b>ข้อมูลตัวอย่าง ไม่ใช่ข้อมูลจริง</b>, ติดป้าย <span lang="en">DEMO</span> ไว้บนหน้าเว็บ</td><td>ไม่มี</td></tr>
+            <tr><td>ข้อกฎหมายในกรณีศึกษา</td><td>พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 มาตรา 37(4) และมาตรา 83</td><td>กฎหมายไทย</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="attrib attrib--ai reveal">
+      <h3 class="attrib__h"><span lang="en">Generative AI</span> ที่ใช้ในงานนี้</h3>
+
+      <div class="aigrid">
+        <div>
+          <p class="aigrid__lab">เครื่องมือ</p>
+          <p><b lang="en">Claude (Anthropic)</b> ผ่าน <span lang="en">Claude Code</span></p>
+        </div>
+        <div>
+          <p class="aigrid__lab">ใช้ในขั้นตอนใดบ้าง</p>
+          <ul class="ailist">
+            <li>ค้นคว้าแนวทางการออกแบบเว็บไซต์ 4 กลุ่ม (สำนักงานกฎหมาย พิพิธภัณฑ์ <span lang="en">fintech</span> และงานมินิมอล)</li>
+            <li>เขียนโครงสร้างโค้ด <span lang="en">HTML</span>, <span lang="en">CSS</span> และ <span lang="en">JavaScript</span></li>
+            <li>เขียนสคริปต์ฉากพื้นหลัง <span lang="en">Canvas</span></li>
+            <li>ช่วยเรียบเรียงและตรวจทานข้อความภาษาไทย</li>
+            <li>คำนวณค่าความต่างสี (<span lang="en">contrast ratio</span>) ตามมาตรฐาน <span lang="en">WCAG 2.2</span></li>
+            <li>ตรวจสอบข้อกฎหมาย <span lang="en">PDPA</span> จากแหล่งอ้างอิงก่อนนำมาใช้</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="aigrid__lab">ตัวอย่างคำสั่ง (<span lang="en">Prompt</span>) ที่ใช้จริง</p>
+      <ul class="prompts">
+        <li lang="en">“Research how law firm, museum, fintech and minimalistic and modern design often design their website: the fonts, the styling, the colors, the aesthetics and the components that make it look great.”</li>
+        <li lang="en">“Make the first mockup: a one page web that slides down and down, with a background scene and birds flying around.”</li>
+        <li lang="en">“I think there might be some other holes like this in your plan. Can you do a sweep to catch those and fix them?”</li>
+      </ul>
+
+      <div class="aiown">
+        <p class="aigrid__lab">ส่วนที่เป็นผลงานของผู้จัดทำเอง</p>
+        <p>การเลือกอาชีพเป้าหมายและสโลแกน · เนื้อหาประสบการณ์ <span lang="en">Hackathon</span> และโครงการอบรม ·
+          แผนเส้นทางอาชีพทั้ง 3 ระยะ · การออกแบบสถานการณ์ในกรณีศึกษาจริยธรรมและการตัดสินใจเชิงจริยธรรม ·
+          การตัดสินใจเลือกทิศทางการออกแบบและตรวจรับงานทุกขั้นตอน ·
+          การตรวจสอบความถูกต้องของข้อมูลกฎหมายก่อนเผยแพร่</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 8. CONTACT ══════════ -->
+<section class="band band--scene cta" id="contact">
+  <canvas class="scene-canvas" data-scene="cta" aria-hidden="true"></canvas>
+  <div class="scene-grain" aria-hidden="true"></div>
+
+  <div class="wrap cta__inner">
+    <div class="cta__text">
+      <p class="overline" lang="en" data-decrypt>GET IN TOUCH</p>
+      <h2>ติดต่อผม</h2>
+      <p class="cta__lead">ยินดีรับฟังคำแนะนำ ข้อเสนอแนะ หรือโอกาสเรียนรู้ใหม่ ๆ<br>
+        โดยเฉพาะเรื่องเทคโนโลยีการเงินและความปลอดภัยไซเบอร์</p>
+    </div>
+
+    <ul class="contact">
+      <li>
+        <span class="contact__lab" lang="en">EMAIL</span>
+        <a href="mailto:ohmohmsakdinon2553@gmail.com" lang="en">ohmohmsakdinon2553@gmail.com</a>
+      </li>
+      <li>
+        <span class="contact__lab" lang="en">LINE</span>
+        <span lang="en">ohmhobby</span>
+      </li>
+      <li>
+        <span class="contact__lab" lang="en">INSTAGRAM</span>
+        <a href="https://instagram.com/ohm.hobby" target="_blank" rel="noopener noreferrer" lang="en">@ohm.hobby</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div class="footer__brand">
+      <p class="footer__name">ศักดินนท์ เศรษฐสิงห์ <span lang="en">/ Sakdinon Settasing</span></p>
+      <p class="footer__slogan" lang="en">Secure Your Capital, Master Global Markets</p>
+    </div>
+
+    <nav class="footer__nav" aria-label="ลิงก์ส่วนท้าย">
+      <a href="#role">บทบาทอาชีพ</a>
+      <a href="#skills">ทักษะ</a>
+      <a href="#roadmap">เส้นทางอาชีพ</a>
+      <a href="#ethics">จริยธรรม</a>
+      <a href="#attribution">การอ้างอิง</a>
+    </nav>
+  </div>
+
+  <div class="wrap disclaimer">
+    <p><strong>หมายเหตุ</strong>: หน้าเว็บนี้เป็นชิ้นงานประกอบการเรียน (แฟ้มสะสมงานดิจิทัลและแผนที่เส้นทางอาชีพ)
+      จัดทำขึ้นเพื่อนำเสนออาชีพในอนาคตและแผนการพัฒนาตนเอง <strong>ไม่ใช่การเสนอให้บริการทางการเงินจริง</strong>
+      และไม่ถือเป็นคำแนะนำการลงทุน ตัวเลขทางการเงินทั้งหมดบนหน้านี้เป็นข้อมูลตัวอย่างเพื่อการนำเสนอเท่านั้น</p>
+    <p class="footer__copy">© <span id="yr" lang="en">2026</span> ศักดินนท์ เศรษฐสิงห์ · โปรเจกต์ปลายภาค ม.5</p>
+  </div>
+</footer>
+
+<script src="assets/js/ambient.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
